@@ -3,16 +3,22 @@ package main
 import (
 	"log"
 	"net/http"
+	"urlshort-backend/db"
+	"urlshort-backend/modules"
 
-	"github.com/rs/cors"
+	"urlshort-backend/routes"
 )
 
 func main() {
-	mux := http.NewServeMux()
-	mux.HandleFunc("/api/send-test-email", handleSendTestEmail)
+	db.InitDB()
+	modules.AutoMigrate()
+	modules.InitDefaults()
 
-	handler := cors.Default().Handler(mux)
-
-	log.Println("✅ Backend running on http://localhost:8080")
-	http.ListenAndServe(":8080", handler)
+	log.Println("🚀 Server running at http://localhost:8080")
+	err := http.ListenAndServe(":8080", routes.SetupRoutes())
+	if err != nil {
+		log.Fatalf("❌ Failed to start server: %v", err)
+	} else {
+		log.Println("✅ Server started successfully")
+	}
 }

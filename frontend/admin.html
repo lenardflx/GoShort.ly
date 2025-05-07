@@ -25,16 +25,6 @@
 </main>
 
 <script>
-    // Darkmode toggle
-    const toggle = document.getElementById("darkmode-toggle");
-    const dark = localStorage.getItem("theme") === "dark";
-    if (dark) document.body.classList.add("dark");
-
-    toggle.addEventListener("click", () => {
-        document.body.classList.toggle("dark");
-        localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
-    });
-
     // Collapsible sections
     function attachSectionToggles() {
         document.querySelectorAll(".collapsible").forEach(section => {
@@ -47,7 +37,7 @@
     }
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bcryptjs"></script>
-<script src="js/admin-login.js"></script>
-<script src="js/test-smtp.js"></script>
+<script type="module" src="js/admin/login.js"></script>
+<script src="js/darkmode-toggle.js"></script>
 </body>
 </html>

@@ -45,10 +45,10 @@
         <h2 class="section-title">Users</h2>
         <div class="section-content collapsed">
             <label>Invite user email:
-                <input type="email" class="input-field" name="invite_email" />
+                <input type="email" class="input-field" name="invite_email" id="invite-email" />
             </label>
-            <button type="button" class="button">Send Invite Link</button>
-            <p class="info-text">Pending invites will be listed here (future).</p>
+            <button type="button" class="button" id="send-invite-btn">Send Invite Link</button>
+            <p class="info-text" id="invite-result">Pending invites will be listed here (future).</p>
         </div>
     </section>
 
@@ -96,6 +96,12 @@
                 </select>
             </label>
 
+            <hr class="divider" />
+
+            <label>Test recipient address:
+                <input type="email" class="input-field" name="smtp_test_to" placeholder="test@yourdomain.com" />
+            </label>
+
             <button type="button" id="send-test-email" class="button button-secondary">Send Test Email</button>
         </div>
     </section>
@@ -103,7 +109,7 @@
 
     <!-- Save Button -->
     <section class="admin-save">
-        <button type="submit" class="button button-primary">Save All Settings</button>
+        <button class="button button-primary">Save All Settings</button>
         <p class="form-feedback" id="form-feedback"></p>
     </section>
 

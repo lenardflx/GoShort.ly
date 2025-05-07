@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Accept Invite - GoShort.ly</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+<header class="navbar">
+    <h1>GoShort.ly Invite</h1>
+    <button id="darkmode-toggle">🌙</button>
+</header>
+
+<main class="admin-container">
+    <section>
+        <p>Welcome! Complete your signup to activate your account.</p>
+        <form id="signup-form" class="admin-form">
+            <input type="hidden" name="token" id="invite-token" />
+
+            <label>
+                Username:
+                <input type="text" class="input-field" name="username" required />
+            </label>
+
+            <label>
+                Password:
+                <input type="password" class="input-field" name="password" required />
+            </label>
+
+            <button type="submit" class="button button-primary">Create Account</button>
+            <p id="signup-error" class="form-error"></p>
+        </form>
+    </section>
+</main>
+
+<script>
+    // Dark mode toggle
+    const toggle = document.getElementById("darkmode-toggle");
+    const isDark = localStorage.getItem("theme") === "dark";
+    if (isDark) document.body.classList.add("dark");
+
+    toggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark");
+        localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
+    });
+
+    // Token from URL
+    const token = window.location.pathname.split("/").pop();
+    document.getElementById("invite-token").value = token;
+
+    // Submit form
+    document.getElementById("signup-form").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const data = Object.fromEntries(new FormData(form).entries());
+
+        try {
+            const res = await fetch("http://localhost:8080/api/signup", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            });
+
+            if (!res.ok) {
+                const text = await res.text();
+                throw new Error(text);
+            }
+
+            alert("🎉 Account created! You may now log in.");
+            window.location.href = "/";
+        } catch (err) {
+            document.getElementById("signup-error").textContent = err.message;
+        }
+    });
+</script>
+</body>
+</html>

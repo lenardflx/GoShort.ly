@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>GoShort.ly</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+<header class="navbar">
+    <h1>GoShort.ly</h1>
+    <button id="darkmode-toggle">🌙</button>
+</header>
+
+<main class="admin-container">
+    <section id="login-section">
+        <h2 class="admin-title">Welcome</h2>
+        <form id="user-login-form" class="admin-form">
+            <label>
+                Enter a username:
+                <input type="text" class="input-field" id="username" placeholder="e.g. guest123" required />
+            </label>
+            <button type="submit" class="button button-primary">Continue</button>
+        </form>
+    </section>
+
+    <div id="user-placeholder"></div>
+</main>
+
+<script src="js/user-login.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<section id="dashboard-section">
+    <h2 class="admin-title">Welcome, <span id="display-name">User</span> 👋</h2>
+
+    <!-- Add Short Link -->
+    <section class="admin-section">
+        <h3 class="section-title">Create New Link</h3>
+        <div class="section-content">
+            <form id="link-form" class="admin-form">
+                <label>
+                    Target URL:
+                    <input type="url" class="input-field" id="target-url" placeholder="https://..." required />
+                </label>
+                <label>
+                    Custom short name (optional):
+                    <input type="text" class="input-field" id="custom-slug" placeholder="e.g. mylink123" />
+                </label>
+                <button type="submit" class="button button-primary">Shorten & Generate QR</button>
+            </form>
+
+            <div id="qr-result" class="info-text"></div>
+        </div>
+    </section>
+
+    <!-- Link List -->
+    <section class="admin-section">
+        <h3 class="section-title">Your Links</h3>
+        <div class="section-content">
+            <input type="text" class="input-field" id="search-links" placeholder="Search links..." />
+
+            <ul id="link-list" class="link-list">
+                <!-- Example items -->
+                <li><strong>my-portfolio</strong> → <a href="https://example.com" target="_blank">https://example.com</a></li>
+                <li><strong>yt</strong> → <a href="https://youtube.com" target="_blank">https://youtube.com</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Settings + Logout -->
+    <section class="admin-section">
+        <h3 class="section-title">Settings</h3>
+        <div class="section-content">
+            <p class="info-text">Username: <strong id="settings-username">user</strong></p>
+            <button class="button button-secondary" id="logout-btn">Logout</button>
+        </div>
+    </section>
+</section>

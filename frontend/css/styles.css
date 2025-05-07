@@ -1,0 +1,164 @@
+/* Global reset and box model */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Theme variables */
+:root {
+    --bg: #f5f5f5;
+    --text: #111;
+    --card: #fff;
+    --input: #eee;
+    --border: #ccc;
+    --accent: #007bff;
+    --error: #dc3545;
+}
+
+body.dark {
+    --bg: #1c1e21;
+    --text: #eaeaea;
+    --card: #2a2c2f;
+    --input: #3a3c40;
+    --border: #444;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* Top navigation bar */
+.navbar {
+    background: var(--card);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar button {
+    font-size: 1.2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Main container */
+.admin-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 2rem;
+}
+
+/* Form layout */
+.admin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Section card */
+.admin-section {
+    background: var(--input);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+/* Section title (collapsible header) */
+.section-title {
+    margin: 0;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-title::after {
+    content: "▾";
+    font-size: 1rem;
+    transition: transform 0.2s ease;
+}
+
+/* Collapsed state indicator */
+.section-content.collapsed {
+    display: none;
+}
+
+.section-content {
+    padding: 1rem;
+}
+
+.collapsible .section-title.collapsed::after {
+    transform: rotate(-90deg);
+}
+
+/* Inputs and buttons */
+.input-field {
+    width: 100%;
+    padding: 0.6rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--card);
+    color: var(--text);
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.button {
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+}
+
+.button:hover {
+    background: #0056b3;
+}
+
+.button-secondary {
+    background: #6c757d;
+}
+
+.button-secondary:hover {
+    background: #545b62;
+}
+
+/* Errors & save */
+.form-error {
+    color: var(--error);
+    margin-top: 0.5rem;
+}
+
+.admin-save {
+    text-align: right;
+    margin-top: 2rem;
+}
+
+.info-text {
+    font-size: 0.9rem;
+    color: #888;
+}

@@ -1,0 +1,110 @@
+<form id="admin-settings-form" class="admin-form" autocomplete="off">
+
+    <!-- General Settings -->
+    <section class="admin-section collapsible">
+        <h2 class="section-title">General Settings</h2>
+        <div class="section-content collapsed">
+            <label>Base URL:
+                <input type="url" class="input-field" name="base_url" placeholder="https://your_url.com" required />
+            </label>
+            <label>Max URL length:
+                <input type="number" class="input-field" name="max_url_length" min="1" placeholder="10" />
+            </label>
+            <label>Service name:
+                <input type="text" class="input-field" name="branding_name" placeholder="GoShort.ly" />
+            </label>
+        </div>
+    </section>
+
+    <!-- User Settings -->
+    <section class="admin-section collapsible">
+        <h2 class="section-title">User Settings</h2>
+        <div class="section-content collapsed">
+            <label>Default user link limit:
+                <input type="number" class="input-field" name="default_user_limit" min="0" />
+            </label>
+            <label>Default link expiration (days):
+                <input type="number" class="input-field" name="default_expiration" min="0" />
+            </label>
+            <label class="checkbox-label">
+                <input type="checkbox" name="user_override_expiration" />
+                Allow user to override expiration
+            </label>
+            <label class="checkbox-label">
+                <input type="checkbox" name="allow_anonymous" />
+                Allow anonymous usage
+            </label>
+            <label>Block user after X failed logins:
+                <input type="number" class="input-field" name="failed_login_limit" min="1" />
+            </label>
+        </div>
+    </section>
+
+    <!-- Invitation System -->
+    <section class="admin-section collapsible">
+        <h2 class="section-title">Users</h2>
+        <div class="section-content collapsed">
+            <label>Invite user email:
+                <input type="email" class="input-field" name="invite_email" />
+            </label>
+            <button type="button" class="button">Send Invite Link</button>
+            <p class="info-text">Pending invites will be listed here (future).</p>
+        </div>
+    </section>
+
+    <!-- SMTP Settings -->
+    <section class="admin-section collapsible">
+        <h2 class="section-title">SMTP Settings</h2>
+        <div class="section-content collapsed">
+            <label>Host:
+                <input type="text" class="input-field" name="smtp_host" placeholder="mail.example.com" />
+            </label>
+
+            <label>Port:
+                <input type="number" class="input-field" name="smtp_port" placeholder="587" />
+            </label>
+
+            <label>Secure SMTP:
+                <select name="smtp_security" class="input-field">
+                    <option value="none">None</option>
+                    <option value="starttls" selected>STARTTLS</option>
+                    <option value="ssl">SSL/TLS</option>
+                </select>
+            </label>
+
+            <label>From Address:
+                <input type="email" class="input-field" name="smtp_from" placeholder="noreply@example.com" />
+            </label>
+
+            <label>From Name:
+                <input type="text" class="input-field" name="smtp_name" placeholder="GoShort.ly" />
+            </label>
+
+            <label>Username:
+                <input type="text" class="input-field" name="smtp_user" />
+            </label>
+
+            <label>Password:
+                <input type="password" class="input-field" name="smtp_pass" style="flex: 1;" />
+            </label>
+
+            <label>SMTP Auth mechanism:
+                <select name="smtp_auth_method" class="input-field">
+                    <option value="login" selected>Login</option>
+                    <option value="plain">Plain</option>
+                    <option value="cram-md5">CRAM-MD5</option>
+                </select>
+            </label>
+
+            <button type="button" id="send-test-email" class="button button-secondary">Send Test Email</button>
+        </div>
+    </section>
+
+
+    <!-- Save Button -->
+    <section class="admin-save">
+        <button type="submit" class="button button-primary">Save All Settings</button>
+        <p class="form-feedback" id="form-feedback"></p>
+    </section>
+
+</form>

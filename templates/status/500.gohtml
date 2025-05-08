@@ -1,0 +1,30 @@
+{{define "status/500"}}
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{.Title}} - {{.AppName}}</title>
+    <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="/static/favicon.png" type="image/png">
+    <style>
+      body { font-family: sans-serif; background: #f9f9f9; color: #333; margin: 0; padding: 0; }
+      .container { max-width: 800px; margin: 5rem auto; padding: 2rem; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+      h1 { color: #c00; }
+      pre { background: #eee; padding: 1rem; overflow-x: auto; }
+    </style>
+  </head>
+  <body>
+  <div class="container">
+    <h1>500 - Internal Server Error</h1>
+    {{if .ErrorMsg}}
+      <p>An error occurred:</p>
+      <pre>{{.ErrorMsg}}</pre>
+    {{else}}
+      <p>Something went wrong. Please try again later.</p>
+    {{end}}
+    <hr>
+    <p style="text-align:center;">{{.AppName}} &middot; {{.AppVersion}}</p>
+  </div>
+  </body>
+  </html>
+{{end}}

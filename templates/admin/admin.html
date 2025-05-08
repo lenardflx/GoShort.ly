@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Admin Login - URL Shortener</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+<header class="navbar">
+    <h1>GoShort.ly Admin</h1>
+    <button id="darkmode-toggle">🌙</button>
+</header>
+
+<main class="admin-container">
+    <section id="auth-section">
+    <p>Please enter your admin password to continue.</p>
+        <form id="admin-login-form" class="admin-form">
+            <input type="password" id="admin-password" class="input-field" placeholder="Admin password" required />
+            <button type="submit" class="button button-primary">Unlock</button>
+            <p id="login-error" class="form-error"></p>
+        </form>
+    </section>
+    <div id="admin-placeholder"></div>
+</main>
+
+<script>
+    // Collapsible sections
+    function attachSectionToggles() {
+        document.querySelectorAll(".collapsible").forEach(section => {
+            const header = section.querySelector(".section-title");
+            const content = section.querySelector(".section-content");
+            header.addEventListener("click", () => {
+                content.classList.toggle("collapsed");
+            });
+        });
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bcryptjs"></script>
+<script type="module" src="js/admin/login.js"></script>
+<script src="js/darkmode-toggle.js"></script>
+</body>
+</html>

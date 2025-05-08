@@ -5,8 +5,8 @@ go 1.23.0
 toolchain go1.24.3
 
 require (
+	github.com/go-chi/chi/v5 v5.2.1
 	github.com/go-mail/mail v2.3.1+incompatible
-	github.com/rs/cors v1.11.1
 	golang.org/x/crypto v0.38.0
 	gorm.io/driver/sqlite v1.5.7
 	gorm.io/gorm v1.26.1

@@ -1,0 +1,15 @@
+{{define "admin"}}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{{.Title}}</title>
+    </head>
+    <body>
+    <h1>Admin Dashboard</h1>
+
+    <p>Welcome, <strong>{{.Username}}</strong></p>
+    <p>Status: {{if .IsAdmin}}✅ Admin Access{{else}}❌ No Admin Access{{end}}</p>
+    </body>
+    </html>
+{{end}}

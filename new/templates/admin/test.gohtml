@@ -1,0 +1,22 @@
+{{define "test"}}
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>{{.Title}}</title>
+        <style>
+            body { font-family: monospace; padding: 2rem; background: #f0f0f0; }
+            pre { background: #fff; padding: 1rem; border: 1px solid #ccc; }
+        </style>
+    </head>
+    <body>
+    <h1>{{.Title}}</h1>
+    <pre>
+Method:     {{.Method}}
+URL:        {{.URL}}
+Signed In:  {{.IsSignedIn}}
+Is Admin:   {{.IsAdmin}}
+User:       {{.User}}
+	</pre>
+    </body>
+    </html>
+{{end}}

@@ -4,9 +4,9 @@ import (
 	"bytes"
 	"errors"
 	"fmt"
+	"goshortly/models"
 	"html/template"
 	"path/filepath"
-	"urlshort-backend/models"
 
 	"github.com/go-mail/mail"
 )
